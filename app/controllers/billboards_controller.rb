@@ -6,13 +6,12 @@ class BillboardsController < ApplicationController
   end
 
  def show
-  @billboard = Billboard.name
+  @songs = @billboard.songs
 
 
  end
 
  def new
-    @billboard = Billboard.new
 
   end
 
