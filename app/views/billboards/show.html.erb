@@ -1,6 +1,23 @@
-<h1><%= @billboard.name %></h1>
-<hr />
-<%= @songs.name %>
-code here listing all songs and what they are ranked on the billboard
-only top 100 songs 
-list sql by order of listens and then  have pull ORDER BY and LIMIT
+<h1>
+<%= @billboard.name %>
+</h1>
+
+<% if @songs.any? %>
+
+      <% @songs.each do |song| %>
+        
+      <%= song.title %></span>
+          <p>Artist: song.artist.name</p>
+          <p>Duration: song.duration</p>
+        </div>
+        
+          <%= link_to 'Go To Song', artist_song_path(song.artist, song) %>
+          <%= link_to 'Remove From Billboard', remove_billboard_song_path(@billboard, song), method: :delete %>
+    
+      <% end %>
+
+<% else %>
+<h3>No Songs On Billboard, Please Add One</h3>
+<% end %>
+
+
