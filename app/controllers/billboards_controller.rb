@@ -1,23 +1,23 @@
 class BillboardsController < ApplicationController
   before_action :set_billboard, only: [:show, :update, :edit, :destroy]
-  
+
  def index
     @billboards = Billboard.all
   end
 
  def show
   @billboard = Billboard.name
-  @songs = @billboard.song
+
 
  end
 
  def new
     @billboard = Billboard.new
-  
+
   end
 
  def edit
-    
+
   end
 
  def create
@@ -25,7 +25,7 @@ class BillboardsController < ApplicationController
     if @billboard.save
       redirect_to billboards_path(@billboard)
     else
-      
+
    end
   end
 
